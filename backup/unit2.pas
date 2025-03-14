@@ -70,7 +70,7 @@ procedure TForm2.FormActivate(Sender: TObject);
 begin
   // обозначить экзамен или тест
   if Form1.RadioButton1.Checked = true then
-    stime := 2; // 10-1
+    stime := 3; // 10-1
   if Form1.RadioButton2.Checked = true then
     stime := 29; // 30-1
   Form2.Timer1.Enabled := true;

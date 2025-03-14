@@ -22,7 +22,7 @@
 Если вы хотите внести свой вклад в проект, пожалуйста, создайте форк репозитория и отправьте пулл-реквест с вашими изменениями.
 Технологии:
 Lazarus (FreePascal) v2.2.4 Attention! 
-Additional RichMemo library used
+Additional RichMemo (lazrichview) library used
 
 ## Лицензия
 

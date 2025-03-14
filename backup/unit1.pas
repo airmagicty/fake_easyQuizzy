@@ -21,10 +21,12 @@ type
     Edit4: TEdit;
     Edit5: TEdit;
     Label1: TLabel;
+    Label2: TLabel;
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
     procedure RadioButton2Click(Sender: TObject);
   private
@@ -37,6 +39,7 @@ var
   Form1: TForm1;
   value, total, proz: integer;
   res_str, testkill, t1, evalue: string;
+  ldate, enddate: TDate;
 
 implementation
 
@@ -127,7 +130,7 @@ begin
   begin
     // большая цифра
     if total <> 0 then
-      proz := round((value/total)*100);
+      proz := round((value/total)*100)
     else
       proz := 100;
 
@@ -170,6 +173,34 @@ begin
   end;
 end;
 
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  // дата конца и текущая
+  enddate := StrToDate('01.01.2999');
+  ldate := date();
+
+  // ограничения
+  if ldate > enddate then
+  begin
+    Form1.Button1.Visible := false;
+    Form1.Label2.Font.Color := clRed;
+    Form1.Edit1.Enabled := false;
+    Form1.Edit2.Enabled := false;
+    Form1.Edit3.Enabled := false;
+    Form1.Edit4.Enabled := false;
+    Form1.Edit5.Enabled := false;
+    Form1.RadioButton1.Enabled := false;
+    Form1.RadioButton2.Enabled := false;
+    Form1.Label2.Caption := 'Приобретите лицензию';
+  end
+  else
+  begin
+    Form1.Label2.Font.Color := clHotLight;
+    Form1.Label2.Caption := 'Лицензия до: ' + DateToStr(enddate);
+  end;
+
+end;
+
 procedure TForm1.RadioButton1Click(Sender: TObject);
 begin
   Form1.Edit5.Visible := false;
@@ -185,9 +216,11 @@ end;
 procedure TForm1.BitBtn1Click(Sender: TObject);
 begin
   ShowMessage('FLTest - Генератор результата тестирования easyQuizzy'+#13+
-              'Версия: 1.0 release'+#13+
+              'Версия: 1.1 release'+#13+
               'Разработчик: airmagicty'+#13+
               '© 2022г'+#13+
+              #13+
+              'Автор не несет ответственности за использование пользователем данной программы, все предоставлено исключительно в образовательных и развлекательных целях.'+#13+
               #13+
               'Инструкция по использованию:'+#13+
               '1. В первую строку введите [количество полученных баллов] из [всего баллов (обычно равно количеству вопросов)].'+#13+
@@ -199,6 +232,7 @@ begin
               'Примечание1: при сворачивании сгенерированного окна с результатом - оно скроется.'+#13+
               'Примечание2: с помощью кнопки [Сохранить в файл...] можно загрузить заранее подготовленный вами отчет (только .rtf).'+#13+
               #13+
+              'Если вы не можете пользоваться продуктом и видите надпись "Приобретите лицензию" - то значит, что ваш срок пользования программой истек. Обратитесь к создателю для продления.'+#13+
               'Создано для: Босова Л. Л. - Электронное приложение к учебнику «Информатика» + Экзамен на easyQuizzy'+#13);
 end;
 
