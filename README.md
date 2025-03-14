@@ -1,7 +1,3 @@
-# fake_easyQuizzy Hack easyQuizzy
-Lazarus (FreePascal) v2.2.4 Attention! 
-Additional RichMemo library used
-
 # Fake Easy Quizzy Hack Tool
 # Фейковый easy Quizzy взлом 
 
@@ -24,6 +20,9 @@ Additional RichMemo library used
 ## Вклад
 
 Если вы хотите внести свой вклад в проект, пожалуйста, создайте форк репозитория и отправьте пулл-реквест с вашими изменениями.
+Технологии:
+Lazarus (FreePascal) v2.2.4 Attention! 
+Additional RichMemo library used
 
 ## Лицензия
 
